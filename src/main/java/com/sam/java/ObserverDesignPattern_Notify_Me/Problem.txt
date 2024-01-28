@@ -1,0 +1,8 @@
+########################NOTIFY ME -- SERVICE#############################
+Users are at Amazon website and you are looking at the product(say Iphone) that is out of stock.
+You need to implement a service that notifies the users when the product becomes available on website again.
+There will be multiple users to who has clicked on the notify me, who want to know when the stocks will be refilled.
+
+####Solution###
+Above problem can be solved by directly applying ObserverPattern
+
