@@ -1,0 +1,34 @@
+IF WE HAVE A CHILD CLASSES INHERITING FROM PARENT CLASS CONTAINING COMMON FEATURES
+->THEN WE HAVE CODE DUPLICACY
+Example
+Vehicle class{
+drive(){
+//Normal drive
+}
+}
+Child
+-> SportyVehicle extends Vehicle{
+   drive(){
+   //Speed Drive
+   }
+}
+
+->PassengerVehicle extends Vehicle{
+    drive(){
+    //Inherit from parent - normal drive
+    }
+}
+
+-> OffRoadVehicle extends Vehicle{
+    drive()
+    {
+        //Speed drive
+    }
+}
+
+We can see in few of the child class drive() method implementation is same
+
+
+####Solution######
+Vehicle class will have a drive strategy class that has child NormalDrive and SpeedDrive
+There will be constructor injection in Vehicle class regarding which driveStrategy child will pick.
