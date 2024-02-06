@@ -1,0 +1,6 @@
+Similar to abstract factory pattern if we have, different type of objects created by factory 1
+then we need to create another factory on top of factory 1 to meet our needs
+
+For Ex:
+You have vehicles class and you have created abstract factory for it to get the objects whenever required based on some logic
+Now you have an another requirement you need types of cars that are in luxary segment
