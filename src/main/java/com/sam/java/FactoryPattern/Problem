@@ -1,0 +1,5 @@
+When you want abstract classes based on some rules, and you can have many such rule that creates the classes,
+also you may need multiple instance from same rule.
+
+###########------------Solution------------###########
+We can create a factory that will create classes based on certain rules.
