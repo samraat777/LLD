@@ -1,0 +1,16 @@
+Decorator is a structural design pattern that lets you attach new behaviors
+to objects by placing these objects inside special wrapper objects that contain the behaviors.
+
+
+When we have combination of feature that user can chose from and those feature inherits  a same parent.
+Then making combination of features for certain type of scenario will bloat the code in client and library side.
+
+#########----------SOLUTION-----------###########
+We can solve this by using aggregation and inheritance together,
+having a instance of baseClass and the base feature class should also extend the base entity class.
+In simple if we get concrete entity class or feature class we wont be able to differentiate as both extends base entity class.
+And We need only class instance of previous operation to add next set of features.
+
+
+
+
