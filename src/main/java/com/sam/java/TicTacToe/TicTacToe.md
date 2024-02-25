@@ -15,3 +15,5 @@ Flow
 
 Player<Multiple Player> will come -> select the symbol -> Start the game -> if winning condition met for a player
 -> return that player as winner
+
+![img.png](TicTacToeUML.png)
