@@ -1,0 +1,94 @@
+Movie Booking App
+Features
+
+User can Search can be able to search movies/shows
+App will be listing different shows for the movies
+User can Book/Cancel seats in the selected hall
+User needs to be registered to the app for booking and cancellation
+App allows Halls to add/edit the shows
+
+Assumptions
+Theater is single screen
+Every theater has fixed seats
+Registered user can book seats and Guest user can only search movies
+Registered user will have history of their booking
+Movie can have 4 genres -- ACTION ROMANCE COMEDY HORROR
+Movies can be in 2 language HINDI and ENGLISH
+We are ignoring payment for now
+
+Classes Required
+User
+RegisteredUser
+GuestUser
+Theater
+Movie
+SHOWS
+App
+Seat
+Screen
+Language
+Genre
+TICKET
+
+
+READJUSTING CLASSES FOR ASSOCIATION COMPOSITION AGGREGATION GENERALIZATION
+
+APP -> COMPOSITION
+    -> *USER
+    -> *THEATER
+         -> COMPOSITION
+                ->* SHOWS -> AGGREGATION -> MOVIE
+
+
+USER -> GENERALIZATION
+     -> RegisteredUser
+                    -> ASSOCIATION ->*SHOW
+                    -> ASSOCIATION ->*TICKET ->ASSOCIATION ->  SHOW
+     -> GuestUser
+
+
+MOVIE -> AGGREGATION
+      -> GENRE --> CREATE ENUM
+      -> LANGUAGE --> CREATE ENUM
+
+
+
+CLASS ATTRIBUTES
+
+USER CLASS -> named it as
+BookMyShow ->
+            +searchShows(Movie movie) : ArrayList<Show>
+
+Theater class->
+                -id: int
+                -name: string
+                -location: string
+                -capacity: int
+                +updateShow():void
+                +getShows(dateTime):<>
+
+
+Show class->
+            -id: int
+            -showTime: Date Time
+            -availableSeats: int
+            +bookTickets(): Tickets
+
+Movie class->
+            -name: String
+            -rating: Float
+
+TICKET CLASS->
+            -id:int
+            -bookingTime: DateTime
+            -theater: String
+            -numberOfSeats:int
+            +getTicketInfo(): Ticket
+            +cancelTicket(): int
+
+ENUM
+    GENRE
+    LANGUAGE
+
+
+
