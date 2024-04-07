@@ -49,11 +49,11 @@ public class ProductHandler {
     public void showProducts()
     {
         System.out.println("Product available are : ");
-        System.out.println("ProductID       ProductName        ProductPrice ");
+        System.out.println("ProductID       ProductName        ProductPrice          IsAvailable");
         System.out.println();
         for(Product p :productList)
         {
-            System.out.println(p.getProductId() + "                 " + p.getName() + "                  " + p.getPrice());
+            System.out.println(p.getProductId() + "                 " + p.getName() + "                  " + p.getPrice() +"              " +p.isAvailable());
         }
     }
 

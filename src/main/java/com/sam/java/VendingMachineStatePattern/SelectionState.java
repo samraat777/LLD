@@ -26,6 +26,11 @@ public class SelectionState implements VendingMachineState{
         int productId = sc.nextInt();
         try{
             Product product = productHandler.getProductById(productId);
+            if(!product.isAvailable())
+            {
+                System.out.println("Product out of Stock please look for other item");
+                throw new Exception("Product out of stock please refill");
+            }
             //TODO Call next Payment State
             vendingMachineState = new PaymentState(productHandler);
             vendingMachineState.payment(product);
