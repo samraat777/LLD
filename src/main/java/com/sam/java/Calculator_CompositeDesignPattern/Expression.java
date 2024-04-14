@@ -35,7 +35,6 @@ public class Expression implements ArithmeticExpression{
                 value = leftExpression.evaluate() / rightExpression.evaluate();
                 break;
         }
-
         System.out.println("Expression " + this.getExpression() + " Value is " + value);
         return value;
     }
