@@ -13,9 +13,6 @@ public class IdleState implements VendingMachineState{
     public String showOptions() throws Exception {
         productHandler.showProducts();
         String welcome = "\n \nWelcome to our machine Please enter product id you want to buy. \n ";
-        //TODO Move to select state
-        vendingMachineState = new SelectionState(productHandler);
-        vendingMachineState.selection();
        return null;
     }
 
@@ -25,14 +22,14 @@ public class IdleState implements VendingMachineState{
     }
 
     @Override
-    public int payment( Product product) throws Exception {
+    public int payment(Product product, int amount) throws Exception {
         return 0;
     }
 
 
 
     @Override
-    public void dispenseProduct(Product p,int returnAmount) throws Exception {
+    public void dispenseProduct(Product p) throws Exception {
        // return null;
     }
 

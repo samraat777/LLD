@@ -12,13 +12,13 @@ public class ExchangeMoneyState implements VendingMachineState{
     }
 
     @Override
-    public int payment( Product product) throws Exception {
+    public int payment(Product product,int amount) throws Exception {
         return 0;
     }
 
 
     @Override
-    public void dispenseProduct(Product p,int returnAmount) throws Exception {
+    public void dispenseProduct(Product p) throws Exception {
         //return null;
     }
 

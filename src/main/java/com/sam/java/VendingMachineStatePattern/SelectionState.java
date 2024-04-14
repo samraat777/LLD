@@ -1,11 +1,8 @@
 package com.sam.java.VendingMachineStatePattern;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class SelectionState implements VendingMachineState{
-
-    VendingMachineState vendingMachineState;
 
     ProductHandler productHandler;
     public SelectionState( ProductHandler productHandler) {
@@ -29,29 +26,25 @@ public class SelectionState implements VendingMachineState{
             if(!product.isAvailable())
             {
                 System.out.println("Product out of Stock please look for other item");
-                throw new Exception("Product out of stock please refill");
+                return null;
+                //throw new Exception("Product out of stock please refill");
             }
-            //TODO Call next Payment State
-            vendingMachineState = new PaymentState(productHandler);
-            vendingMachineState.payment(product);
             return product;
         }catch(Exception e)
         {
             e.printStackTrace();
         }
-        //System.out.println("Please enter correct productID");
-        //throw new Exception("Please enter correct productID");
         return null;
     }
 
     @Override
-    public int payment( Product product) throws Exception {
+    public int payment(Product product, int amount) throws Exception {
         return 0;
     }
 
 
     @Override
-    public void dispenseProduct(Product p,int returnAmount) throws Exception{
+    public void dispenseProduct(Product p) throws Exception{
         throw new Exception("Some Internal Error invoked");
     }
 

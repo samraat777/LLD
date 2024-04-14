@@ -5,8 +5,8 @@ public interface VendingMachineState {
 
     public String showOptions() throws Exception;
     public Product selection() throws Exception;
-    public int payment( Product product) throws Exception;
-    public void dispenseProduct(Product product,int returnAmount) throws Exception;
+    public int payment(Product product, int amount) throws Exception;
+    public void dispenseProduct(Product product) throws Exception;
 
    // void dispenseProduct() throws Exception;
 

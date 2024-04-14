@@ -33,13 +33,42 @@ public class VendingMachine {
         Scanner sc = new Scanner(System.in);
         while(cont != 2)
         {
+
+
             System.out.println("\n \n1 --- To continue Buying press 1 \n2 --- To stop press 2\n");
             cont = sc.nextInt();
-            //System.out.println(cont);
             if(cont != 1)
                 break;
+
             VendingMachineState vendingMachineState = new IdleState(productHandler);
             vendingMachineState.showOptions();
+
+
+            vendingMachineState = new SelectionState(productHandler);
+            Product product = vendingMachineState.selection();
+            if(product == null)
+                continue;
+
+
+            System.out.println("Please Enter the Coins to Buy " + product.getName());
+            int amount = sc.nextInt();
+
+
+            vendingMachineState = new PaymentState(productHandler);
+            int returnAmount = vendingMachineState.payment(product,amount);
+
+            if(returnAmount < 0)
+            {
+                continue;
+            }
+
+
+            vendingMachineState = new DispenseProductState(productHandler);
+            vendingMachineState.dispenseProduct(product)  ;
+
+
+            vendingMachineState = new ExchangeMoneyState();
+            vendingMachineState.returnMoney(returnAmount);
         }
     }
 

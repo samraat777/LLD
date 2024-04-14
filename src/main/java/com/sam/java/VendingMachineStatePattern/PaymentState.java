@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class PaymentState implements VendingMachineState{
 
-    VendingMachineState vendingMachineState;
+
     ProductHandler productHandler;
-//
     public PaymentState(ProductHandler productHandler) {
         this.productHandler = productHandler;
     }
@@ -22,31 +21,23 @@ public class PaymentState implements VendingMachineState{
     }
 
     @Override
-    public int payment( Product product) throws Exception {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please Enter the Coins to Buy " + product.getName());
-        int amount = sc.nextInt();
+    public int payment( Product product,int amount) throws Exception {
         if(amount>=product.getPrice())
         {
             System.out.println("Payment Accepted");
             int returnAmount = amount - product.getPrice();
-            //TODO Move to next  DISPENSE state with product and return amount
-            vendingMachineState = new DispenseProductState(productHandler);
-            vendingMachineState.dispenseProduct(product,returnAmount)  ;
-            return 1;
+            return returnAmount;
         }
         else
         {
-            System.out.println("Please enter sufficient money, Try again");
-            //throw new Exception("Please enter sufficient money, Try again");
+            System.out.println("Please enter sufficient money, Try again \nTake the change == " + amount);
+            return -1;
         }
-        return 0;
     }
 
 
     @Override
-    public void dispenseProduct(Product p,int returnAmount) throws Exception {
-        //return null;
+    public void dispenseProduct(Product p) throws Exception {
     }
 
     @Override
